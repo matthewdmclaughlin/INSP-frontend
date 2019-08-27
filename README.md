@@ -1,136 +1,67 @@
-<<<<<<< HEAD
-# INSP-frontend
-Inspiration Point Front End Repo
-=======
-This is gone be my readme!  for INSP frontend n shit!!
+# **INSPIRATION POINT README**
+**Welcome to Inspiration Point!** This is the place to come when you're down in the doldrums and need to add a kick to your step.  Simply load Inspiration Point and click the **INSPIRE ME** button and be presented with a randomly selected inspiring quote that can pull you up from the gutter and toss your spirit to the heavens!  And if you feel like sharing your own inspiration, create and account and you'll be able to upload your own inspirational quotes (editable and deletable at your lesiure) that can perk up someone else's spirits!  Once you're logged in, click the View My Quotes button to see your submissions and feel free to edit and delete
 
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
-
-# browser-template
-
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
-
-## Installation
-
-1. [Download](../../archive/master.zip) this template.
-    - **Do Not Fork And Clone**
-    - Click the "Clone or Download" button and select "Download Zip".
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `INSP-frontend-client` with the name of
-    your project.
-    - You can search for all instances of text in Atom by pressing
-    `commant + shift + f` on Mac or `ctrl + shift + f` on WSL.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
-1. Follow the instructions on your new repository's setup page. For details on
-   how to push to Github, refer to the section on Github entitled "…or push an existing
-   repository from the command line." Further documentation can be found [here](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/).
-
-## Structure
-
-### Scripts
-
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/app.js`](assets/scripts/app.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
-
-### Config
-
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`assets/scripts/config.js`](assets/scripts/config.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
-
-### Styles
-
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
-
-### Forms and Using `getFormFields`
-
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
-
-### Deployment
-
-To deploy a browser-template based SPA, run `grunt deploy`.
-
-## Adding Images
-
-To add images to your project, you must store them in the `public` directory.
-To use the image in HTML or CSS, write the path to the image like this:
-
-```html
-<img src="public/cat.jpg">
-```
-or
-```css
-#my-cool-div {
-  background-image: url('public/cat.jpg')
-}
-```
-
-Note that there's no `./` or `/` in front of `public/filename.jpg`.
-
-## Adding Fonts
-
-To add custom fonts to your app, you can either use a CDN like Google Fonts, or
-you can download the fonts and save them in the `public` directory. If you use
-the former method, follow the directions on the website providing the fonts.
-
-For local fonts, put the files in `public`, and then import and use them in a
-`.scss` file like this:
-
-```scss
-@font-face {
-  font-family: 'Nature Beauty';
-  src: url('public/Nature-Beauty.ttf') format('truetype');
-}
-
-.element-with-custom-font {
-  font-family: 'Nature Beauty';
-}
-```
-
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-- `grunt deploy`: builds and deploys master branch
+#### GITHUB REPOSITORIES
+**Inspiration Point Front End Repository** - https://github.com/matthewdmclaughlin/INSP-frontend
+**Inspiration Point Back End Repository** - https://github.com/matthewdmclaughlin/INSP-backend
 
 
-## Additional Resources
+### TECHNOLOGIES USED
+- Express API
+- Heroku Cloud Application Platform
+- JavaScript
+- JQuery
+- HTML
+- CSS
+- Ajax
+- Atom v 1.38.2 x64
 
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
+#### WIREFRAMES AND ERD
+**WIREFRAME 1 - Sign Up**
+<a href="https://imgur.com/fLXGEB0"><img src="https://i.imgur.com/fLXGEB0.jpg" title="source: imgur.com" /></a>
+**WIREFRAME 2 - Sign In**
+<a href="https://imgur.com/5OdsaUl"><img src="https://i.imgur.com/5OdsaUl.jpg" title="source: imgur.com" /></a>
+**WIREFRAME 3 - Logged In**
+<a href="https://imgur.com/bGKmAMe"><img src="https://i.imgur.com/bGKmAMe.jpg" title="source: imgur.com" /></a>
+**WIREFRAME 4 - Button clicked**
+<a href="https://imgur.com/4GGNhUj"><img src="https://i.imgur.com/4GGNhUj.jpg" title="source: imgur.com" /></a>
+**WIREFRAME 5- My Quotes**
+<a href="https://imgur.com/P43hYPf"><img src="https://i.imgur.com/P43hYPf.jpg" title="source: imgur.com" /></a>
 
-## [License](LICENSE)
+**ERD**
+<a href="https://imgur.com/fmGcqEy"><img src="https://i.imgur.com/fmGcqEy.jpg" title="source: imgur.com" /></a>
 
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
->>>>>>> Initial commit take 2
+#### USER STORIES
+- As a user I'd like to be able to sign up for this site so I can view quotes to inspire me.
+- As a user I'd like to be able to add quotes to the database to inspire others
+- As a user I'd like to be able to view all the quotes I've added to the database.
+- As a user I'd like to be able to edit a quote I've added if I determine I entered it wrong originally.
+- As a user I'd like to be able to delete a quote I've added if I determine I no longer find it pertinent.
+- As a user I'd like to be able to change my password at my whim.
+- As a user I'd like to be able to sign out when I'm done at the site.
+
+
+#### TABLES & COLUMNS
+**Users**
+| ID | Email | Password |
+| int | string | string |
+
+**Quotes**
+| ID | Quote|
+| int | string |
+
+#### ROUTES
+
+Post - Sign-Up
+Post - Sign-In
+Patch - Change Password
+Delete - Sign Out
+
+Get - Get a random quote
+Get - List all my movies
+Post - Add a quote to the database
+Patch - Edit a quote I've added
+Delete - Remove a quote I've added from the database
+
+#### UNSOLVED PROBLEMS AND FUTURE ENHANCEMENTS
+As of now there are no unsolved problems, just potential for them.  In a future update we'd like to add the ability to add photos to your quotes and perhaps allow you to download the photo with your quote as a meme.  Please contact us with your thoughts, reviews and enhancement requests at matthewdmclaughlin@gmail.com.  Thanks and have an inspiring day!!
