@@ -1,9 +1,15 @@
 # **INSPIRATION POINT README**
 **Welcome to Inspiration Point!** This is the place to come when you're down in the doldrums and need to add a kick to your step.  Simply load Inspiration Point and click the **INSPIRE ME** button and be presented with a randomly selected inspiring quote that can pull you up from the gutter and toss your spirit to the heavens!  And if you feel like sharing your own inspiration, create and account and you'll be able to upload your own inspirational quotes (editable and deletable at your lesiure) that can perk up someone else's spirits!  Once you're logged in, click the View My Quotes button to see your submissions and feel free to edit and delete
 
-#### GITHUB REPOSITORIES
+#### GITHUB REPOSITORIES AND DEPLOYED SITES
+
+## FRONT END
 **Inspiration Point Front End Repository** - https://github.com/matthewdmclaughlin/INSP-frontend
+**Front End Deployed Site** -
+
+## BACK END
 **Inspiration Point Back End Repository** - https://github.com/matthewdmclaughlin/INSP-backend
+**Back End Deployed Site** - 
 
 
 ### TECHNOLOGIES USED
@@ -15,6 +21,12 @@
 - CSS
 - Ajax
 - Atom v 1.38.2 x64
+- HTML
+- Handlebars
+- Github Version Control
+- Mongoose
+- Mongo DB
+- SCSS
 
 #### WIREFRAMES AND ERD
 **WIREFRAME 1 - Sign Up**
