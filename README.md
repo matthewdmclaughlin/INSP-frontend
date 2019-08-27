@@ -18,17 +18,27 @@
 
 #### WIREFRAMES AND ERD
 **WIREFRAME 1 - Sign Up**
+
 <a href="https://imgur.com/fLXGEB0"><img src="https://i.imgur.com/fLXGEB0.jpg" title="source: imgur.com" /></a>
+
 **WIREFRAME 2 - Sign In**
+
 <a href="https://imgur.com/5OdsaUl"><img src="https://i.imgur.com/5OdsaUl.jpg" title="source: imgur.com" /></a>
+
 **WIREFRAME 3 - Logged In**
+
 <a href="https://imgur.com/bGKmAMe"><img src="https://i.imgur.com/bGKmAMe.jpg" title="source: imgur.com" /></a>
+
 **WIREFRAME 4 - Button clicked**
+
 <a href="https://imgur.com/4GGNhUj"><img src="https://i.imgur.com/4GGNhUj.jpg" title="source: imgur.com" /></a>
+
 **WIREFRAME 5- My Quotes**
+
 <a href="https://imgur.com/P43hYPf"><img src="https://i.imgur.com/P43hYPf.jpg" title="source: imgur.com" /></a>
 
 **ERD**
+
 <a href="https://imgur.com/fmGcqEy"><img src="https://i.imgur.com/fmGcqEy.jpg" title="source: imgur.com" /></a>
 
 #### USER STORIES
