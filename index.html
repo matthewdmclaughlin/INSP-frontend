@@ -7,6 +7,10 @@
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -15,6 +19,36 @@
       <h1>Inspiration Point</h1>
       <h3>A random quote of inspiration at your mouse click!</h3>
       <!-- <img src="public/kitty.jpg" alt="cute kitty"> -->
-      <button class="btn btn-giant">INSPIRE ME!</button>
-    </body>
+      <button class="btn btn-info btn-lg">INSPIRE ME!</button>
 </html>
+      <form id="sign-up" class="col-md-8">
+    <h2>Sign Up</h2>
+    <input type="email" name="credentials[email]" placeholder="Email">
+    <input type="password" name="credentials[password]" placeholder="Password">
+    <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+    <button class="btn btn-primary">Register Now!</button>
+  </form>
+
+  <form id="sign-in" class="col-md-8">
+    <h2>Sign In</h2>
+    <input type="email" name="credentials[email]" placeholder="Email">
+    <input type="password" name="credentials[password]" placeholder="Password">
+    <button class="btn btn-primary">Sign In</button>
+  </form>
+
+  <form id="sign-out" class="col-md-6 hidden">
+    <h2>Sign Out</h2>
+    <button class="btn btn-primary">Sign Out</button>
+  </form>
+  <form id="change-password" class="col-md-6 hidden">
+    <h2>Change Password</h2>
+    <input type="password" name="passwords[old]" placeholder="Old Password">
+    <input type="password" name="passwords[new]" placeholder="New Password">
+    <!-- <input type="submit" value="Change Password!"> do I need this? -->
+    <button class="btn btn-primary">Change Password</button>
+  </form>
+  <form>
+  <button id="quickSignIn" class="btn btn-primary">Quick Sign In</button>
+</form>
+
+    </body>
