@@ -41,13 +41,16 @@ const onIndexSuccess = function (data) {
 
   const showQuotesHtml = showQuotesTemplate({ quotes: data.quotes })
   $('.content').html(showQuotesHtml)
+  setTimeout(function () {
+    $('#message').removeClass('success')
+    $('#message').text('')
+  }, 5000)
 }
 
-const onIndexFailure = function (error) {
+const onIndexFailure = function () {
   $('#message').text('Error retrieving your quotes')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('onIndexFailure ran. Error is :', error)
 }
 
 const onShowSuccess = function (data) {
@@ -56,39 +59,34 @@ const onShowSuccess = function (data) {
   $('#message').addClass('success')
 }
 
-const onShowFailure = function (error) {
+const onShowFailure = function () {
   $('#message').text('Error inspiring you - sorry!')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('onShowFailure ran. Error is :', error)
 }
 
 const onDestroySuccess = function () {
   $('#message').text('Quote successfully deleted')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('Quote successfully deleted')
 }
 
-const onDestroyFailure = function (error) {
+const onDestroyFailure = function () {
   $('#message').text('Error deleting your quote')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('onDestroyFailure ran. Error is :', error)
 }
 
 const onUpdateSuccess = function () {
   $('#message').text('You have successfully edited your quote')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('Quote successfully updated')
 }
 
-const onUpdateFailure = function (error) {
+const onUpdateFailure = function () {
   $('#message').text('Error editing your quote')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('onUpdateFailure ran. Error is :', error)
 }
 
 module.exports = {

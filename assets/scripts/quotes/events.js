@@ -9,9 +9,7 @@ const onCreateQuote = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.createQuote(data)
-    .then(() => {
-      onShowQuotes(event)
-    })
+    .then(ui.onCreateSuccess)
     .catch(ui.onCreateFailure)
 }
 
@@ -26,20 +24,15 @@ const onDeleteQuote = function (event) {
   event.preventDefault()
   const deletedQuote = $(event.target).data('id')
   api.destroyQuote(deletedQuote)
-    .then(() => {
-      onShowQuotes(event)
-    })
+    .then(ui.onDestroySuccess)
     .catch(ui.onDestroyFailure)
 }
 
 const onUpdateQuote = function (event) {
   event.preventDefault()
-  console.log(event.target)
   const updatedQuote = getFormFields(event.target)
   api.updateQuote(updatedQuote, event.target.id)
-    .then(() => {
-      onShowQuotes(event)
-    })
+    .then(ui.onUpdateSuccess)
     .catch(ui.onUpdateFailure)
 }
 

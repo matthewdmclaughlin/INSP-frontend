@@ -23,16 +23,6 @@ const createQuote = function (data) {
   })
 }
 
-// const showMyQuotes = function () {
-//   return $.ajax({
-//     url: config.apiUrl + '/quotes/',
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-
 const showMyQuotes = formData => {
   return $.ajax({
     url: config.apiUrl + '/quotes/',

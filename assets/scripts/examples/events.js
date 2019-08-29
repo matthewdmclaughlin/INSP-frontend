@@ -7,7 +7,6 @@ const ui = require('./ui')
 
 const onCreateExample = function (event) {
   event.preventDefault()
-  console.log('onCreateExample ran!')
 
   const data = getFormFields(event.target)
   api.create(data)
@@ -17,7 +16,6 @@ const onCreateExample = function (event) {
 
 const onIndexExamples = function (event) {
   event.preventDefault()
-  console.log('onIndexExamples ran!')
 
   api.index()
     .then(ui.onIndexSuccess)
@@ -26,7 +24,6 @@ const onIndexExamples = function (event) {
 
 const onShowExample = function (event) {
   event.preventDefault()
-  console.log('onShowExample ran!')
 
   const data = getFormFields(event.target)
   const example = data.example
@@ -38,13 +35,11 @@ const onShowExample = function (event) {
   } else {
     $('#message').html('<p>Please provide an example id!</p>')
     $('#message').css('background-color', 'red')
-    console.log('Please enter an example id!')
   }
 }
 
 const onDeleteExample = function (event) {
   event.preventDefault()
-  console.log('onDeleteExample ran!')
 
   const data = getFormFields(event.target)
   const example = data.example
@@ -56,21 +51,17 @@ const onDeleteExample = function (event) {
   } else {
     $('#message').html('<p>Please provide an example id!</p>')
     $('#message').css('background-color', 'red')
-    console.log('Please provide an example id!')
   }
 }
 
 const onUpdateExample = function (event) {
   event.preventDefault()
-  console.log('onUpdateExample ran!')
-
   const data = getFormFields(event.target)
   const example = data.example
 
   if (example.text === '') {
     $('#message').html('<p>Text is required</p>')
     $('#message').css('background-color', 'red')
-    console.log('Text is required!')
     return false
   }
   if (example.id.length !== 0) {
@@ -80,7 +71,6 @@ const onUpdateExample = function (event) {
   } else {
     $('#message').html('<p>Please provide an example id!</p>')
     $('#message').css('background-color', 'red')
-    console.log('Please provide an example id!')
   }
 }
 
