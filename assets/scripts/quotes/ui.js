@@ -1,24 +1,46 @@
 'use strict'
 
-const onCreateSuccess = function (data) {
-  $('#message').text('Quote successfully created')
-  $('#message').removeClass()
+const showQuotesTemplate = require('../templates/quotes-listing.handlebars')
+
+const successMessage = message => {
+  $('#message').text(message)
+  $('#message').css('background-color', 'green')
   $('#message').addClass('success')
-  console.log('onCreateSuccess ran. Data is :', data)
+  $('#message').removeClass('failure')
+  $('form').trigger('reset')
+  setTimeout(function () {
+    $('#message').removeClass('success')
+    $('#message').text('')
+  }, 5000)
 }
 
-const onCreateFailure = function (error) {
-  $('#message').text('Error on creating a quote')
-  $('#message').removeClass()
+const failureMessage = message => {
+  $('#message').text(message)
+  $('#message').css('background-color', 'red')
+  $('#message').removeClass('success')
   $('#message').addClass('failure')
-  console.error('onCreateFailure ran. Error is :', error)
+  $('form').trigger('reset')
+  setTimeout(function () {
+    $('#message').removeClass('failure')
+    $('#message').text('')
+  }, 5000)
+}
+
+const onCreateSuccess = function (data) {
+  successMessage('Quote successfully created')
+}
+
+const onCreateFailure = function () {
+  failureMessage('Error on creating a quote')
 }
 
 const onIndexSuccess = function (data) {
   $('#message').text('Your quotes successfully retrieved')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('onIndexSuccess ran. Data is :', data.quotes)
+
+  const showQuotesHtml = showQuotesTemplate({ quotes: data.quotes })
+  $('.content').html(showQuotesHtml)
 }
 
 const onIndexFailure = function (error) {
@@ -32,7 +54,6 @@ const onShowSuccess = function (data) {
   $('#message').text('Enjoy your quote')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('onCreateSuccess ran. Data is :', data)
 }
 
 const onShowFailure = function (error) {

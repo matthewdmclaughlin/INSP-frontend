@@ -7,9 +7,10 @@
 // require('./example')
 
 const authEvents = require('./auth/events.js')
-const examplesEvents = require('./examples/events.js')
+// const examplesEvents = require('./examples/events.js')
+const quoteEvents = require('./quotes/events.js')
 
 $(() => {
   authEvents.addHandlers()
-  examplesEvents.addHandlers()
+  quoteEvents.addHandlers()
 })

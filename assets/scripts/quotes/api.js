@@ -12,7 +12,6 @@ const generateQuote = function () {
 }
 
 const createQuote = function (data) {
-  console.log('data: ', data)
   return $.ajax({
     url: config.apiUrl + '/quotes',
     method: 'POST',
@@ -24,9 +23,20 @@ const createQuote = function (data) {
   })
 }
 
-const showMyQuotes = function (quote) {
+// const showMyQuotes = function () {
+//   return $.ajax({
+//     url: config.apiUrl + '/quotes/',
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
+
+const showMyQuotes = formData => {
   return $.ajax({
-    url: config.apiUrl + '/quotes/' + quote.id,
+    url: config.apiUrl + '/quotes/',
+    data: formData,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -44,9 +54,9 @@ const destroyQuote = function (id) {
   })
 }
 
-const updateMyQuote = function (data) {
+const updateQuote = function (data, id) {
   return $.ajax({
-    url: config.apiUrl + '/quotes/' + data.quote.id,
+    url: config.apiUrl + '/quotes/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -61,5 +71,5 @@ module.exports = {
   createQuote,
   showMyQuotes,
   destroyQuote,
-  updateMyQuote
+  updateQuote
 }

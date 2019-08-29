@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Inspiration Point</title>
+      <title>Quote City</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,18 +12,18 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container">
-      <h1>Inspiration Point</h1>
-      <h2> Click the button for a random inspirational quote!</h2>
+      <h1>Quote City</h1>
+      <h2>Save Your Favorite Quotes for Posterity</h2>
         <h3 id="message"></h3>
       <!-- </div>
       <div class="row"> -->
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+      <!-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
         INSPIRE ME
-      </button>
+      </button> -->
 
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -38,10 +38,10 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
+            </div> -->
+          <!-- </div>
         </div>
-      </div>
+      </div> -->
 
 <div>
           <form id="sign-up" class="col-sm-4 addEventForm">
@@ -73,13 +73,14 @@
           </form>
 </div>
     <div>
-          <form id=buttons class="col-sm-8 hidden">
+          <form id="quote-create" class="hidden">
               <h2>Add A Quote</h2>
-            <input type="text" name="example[text]" placeholder="Add your quote here...">
+            <input type="text" name="quote[quote]" placeholder="Add a new quote">
             <button class="btn btn-primary">Create New Quote</button>
             <h2>Show My Quotes</h2>
-            <button id=myQuotes class="btn btn-primary">Show My Quotes</button>
+            <button id="quote-index" class="btn btn-primary">Show My Quotes</button>
           </form>
     </div>
+    <div id="content" class="content"></div>
     </body>
 </html>

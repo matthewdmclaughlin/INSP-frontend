@@ -42,8 +42,12 @@ const signInSuccess = responseData => {
   $('#sign-out').removeClass('hidden')
   $('#change-password').removeClass('hidden')
   $('#quickSignIn').addClass('hidden')
-  $('#buttons').removeClass('hidden')
+  $('#quote-create').removeClass('hidden')
   $('#my-quotes').removeClass('hidden')
+  setTimeout(function () {
+    $('#message').removeClass('success')
+    $('#message').text('')
+  }, 5000)
 }
 
 const signInFailure = responseData => {
@@ -59,23 +63,21 @@ const signOutSuccess = responseData => {
   $('#sign-out').addClass('hidden')
   $('#change-password').addClass('hidden')
   $('#quickSignIn').removeClass('hidden')
-  $('#buttons').addClass('hidden')
+  $('#quote-create').addClass('hidden')
   $('#my-quotes').addClass('hidden')
   $('#content').html('')
 }
 
 const signOutFailure = responseData => {
   failureMessage('Sign out failed. Please check your username and/or password')
-  // $('#message').removeClass('hidden')
-  // $('#message').addClass('failure')
 }
 
 const changePasswordSuccess = () => {
-  failureMessage('You have NOT changed your password successfully')
+  successMessage('Your password has been changed successfully')
 }
 
 const changePasswordFailure = () => {
-  successMessage('You have changed your password')
+  failureMessage('Your password has NOT been changed')
 }
 
 module.exports = {
