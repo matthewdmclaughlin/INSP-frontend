@@ -1,20 +1,12 @@
+'use strict'
+
 const config = require('../config')
 const store = require('../store')
 
-const generateQuote = function () {
-  return $.ajax({
-    url: config.apiUrl + '/quotes',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
-const createQuote = function (data) {
+const create = function (data) {
   console.log('data: ', data)
   return $.ajax({
-    url: config.apiUrl + '/quotes',
+    url: config.apiUrl + '/examples',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -24,9 +16,9 @@ const createQuote = function (data) {
   })
 }
 
-const showMyQuotes = function (quote) {
+const index = function () {
   return $.ajax({
-    url: config.apiUrl + '/quotes/' + quote.id,
+    url: config.apiUrl + '/examples',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -34,9 +26,19 @@ const showMyQuotes = function (quote) {
   })
 }
 
-const destroyQuote = function (id) {
+const show = function (example) {
   return $.ajax({
-    url: config.apiUrl + '/quotes/' + id,
+    url: config.apiUrl + '/examples/' + example.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const destroy = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/examples/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -44,9 +46,9 @@ const destroyQuote = function (id) {
   })
 }
 
-const updateMyQuote = function (data) {
+const update = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/quotes/' + data.quote.id,
+    url: config.apiUrl + '/examples/' + data.example.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -57,9 +59,9 @@ const updateMyQuote = function (data) {
 }
 
 module.exports = {
-  generateQuote,
-  createQuote,
-  showMyQuotes,
-  destroyQuote,
-  updateMyQuote
+  create,
+  index,
+  show,
+  destroy,
+  update
 }

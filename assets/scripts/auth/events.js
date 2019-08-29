@@ -1,69 +1,54 @@
 'use strict'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
-const store = require('./../store')
 
 const api = require('./api')
 const ui = require('./ui')
 
-const onSignUp = event => {
+const onSignUp = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  store.save = data
+  console.log('sign up ran!')
+
+  const data = getFormFields(this)
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
 }
 
-const onSignIn = event => {
+const onSignIn = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  console.log('sign in ran!')
+
+  const data = getFormFields(this)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
 
-const onChangePassword = event => {
+const onSignOut = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  console.log('sign out ran')
+
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
+const onChangePassword = function (event) {
+  event.preventDefault()
+  console.log('change password ran!')
+
+  const data = getFormFields(this)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
 
-const onQuickSignIn = event => {
-  event.preventDefault()
-  const guest = {
-    'credentials': {
-      'email': 'matt@matt',
-      'password': 'matt'
-    }
-  }
-  api.signIn(guest)
-    .then(ui.signInSuccessful)
-    .catch(ui.SignInFailure)
-}
-
-const onSignOut = event => {
-  event.preventDefault()
-  api.signOut(event)
-    .then(ui.signOutSuccess)
-    .catch(ui.signOutFailure)
-}
-
 const addHandlers = () => {
-  $(document).on('submit', '#sign-up', onSignUp)
-  $(document).on('submit', '#sign-in', onSignIn)
-  $(document).on('submit', '#sign-in', onQuickSignIn)
-  $(document).on('submit', '#change-password', onChangePassword)
-  $(document).on('click', '#sign-out', onSignOut)
-  $(document).on('click', '.sign-up-link', ui.showSignUp)
-  $(document).on('click', '.sign-in-link', ui.showSignIn)
-  $(document).ready(function () {
-    $('#change-password-modal').on('hidden.bs.modal', function () {
-      $('form').trigger('reset')
-    })
-  })
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
+  $('#sign-out').on('submit', onSignOut)
+  $('#change-password').on('submit', onChangePassword)
 }
 
 module.exports = {

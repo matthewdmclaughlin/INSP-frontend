@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('../store')
-// Give feedback to the user after each action's success or failure. FIX:No success/failure messaging
+
 const successMessage = message => {
   $('#message').text(message)
   $('#message').css('background-color', 'green')
@@ -13,6 +13,7 @@ const successMessage = message => {
     $('#message').text('')
   }, 5000)
 }
+
 const failureMessage = message => {
   $('#message').text(message)
   $('#message').css('background-color', 'red')
@@ -24,13 +25,16 @@ const failureMessage = message => {
     $('#message').text('')
   }, 5000)
 }
-const signUpSuccessful = responseData => {
-  successMessage('You signed up successfully!')
+
+const signUpSuccess = responseData => {
+  successMessage('Sign Up Successful!')
 }
+
 const signUpFailure = () => {
-  failureMessage('Sign up failed')
+  failureMessage('Sign Up Failed')
 }
-const signInSuccessful = responseData => {
+
+const signInSuccess = responseData => {
   successMessage('You signed in successfully')
   store.user = responseData.user
   $('#sign-in').addClass('hidden')
@@ -38,16 +42,16 @@ const signInSuccessful = responseData => {
   $('#sign-out').removeClass('hidden')
   $('#change-password').removeClass('hidden')
   $('#quickSignIn').addClass('hidden')
-  $('#getQuotesButton').removeClass('hidden')
-  $('#create-quote').removeClass('hidden')
+  $('#buttons').removeClass('hidden')
+  $('#my-quotes').removeClass('hidden')
 }
 
 const signInFailure = responseData => {
-  failureMessage('Sign in failed')
+  failureMessage('Sign In Failed')
   store.user = responseData.user
 }
 
-const signOutSuccessful = responseData => {
+const signOutSuccess = responseData => {
   successMessage('You have signed out successfully!')
   // After signing out the page doesn't change so no way to sign back in. FIX:
   $('#sign-in').removeClass('hidden')
@@ -55,28 +59,32 @@ const signOutSuccessful = responseData => {
   $('#sign-out').addClass('hidden')
   $('#change-password').addClass('hidden')
   $('#quickSignIn').removeClass('hidden')
-  $('.container').addClass('hidden')
-  $('#create-dvd').addClass('hidden')
+  $('#buttons').addClass('hidden')
+  $('#my-quotes').addClass('hidden')
   $('#content').html('')
 }
+
 const signOutFailure = responseData => {
   failureMessage('Sign out failed. Please check your username and/or password')
   // $('#message').removeClass('hidden')
   // $('#message').addClass('failure')
 }
-const changePasswordFailure = () => {
+
+const changePasswordSuccess = () => {
   failureMessage('You have NOT changed your password successfully')
 }
-const changePasswordSuccessful = () => {
+
+const changePasswordFailure = () => {
   successMessage('You have changed your password')
 }
+
 module.exports = {
-  signUpSuccessful,
+  signUpSuccess,
   signUpFailure,
-  signInSuccessful,
+  signInSuccess,
   signInFailure,
-  signOutSuccessful,
+  signOutSuccess,
   signOutFailure,
-  changePasswordFailure,
-  changePasswordSuccessful
+  changePasswordSuccess,
+  changePasswordFailure
 }

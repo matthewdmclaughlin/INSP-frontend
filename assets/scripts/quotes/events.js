@@ -1,56 +1,97 @@
 'use strict'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
-// const store = require('../store')
+
 const api = require('./api')
 const ui = require('./ui')
-// const config = require('./../config')
 
-const onCreateQuote = event => {
+const onCreateQuote = function (event) {
   event.preventDefault()
-  const formData = getFormFields(event.target)
-  api.createquote(formData)
-    .then(ui.createQuoteSuccess)
-    .catch(ui.createQuoteFailure)
+  console.log('onCreateQuote ran!')
+
+  const data = getFormFields(event.target)
+  api.create(data)
+    .then(ui.onCreateSuccess)
+    .catch(ui.onCreateFailure)
 }
 
-const onDeleteQuote = (event) => {
+const onIndexQuotes = function (event) {
   event.preventDefault()
-  const quoteId = event.target.dataset.id
-  api.deleteQuote(quoteId)
-    .then(ui.deleteQuoteSuccess)
-    .catch(ui.failure)
+  console.log('onIndexQuotes ran!')
+
+  api.index()
+    .then(ui.onIndexSuccess)
+    .catch(ui.onIndexFailure)
 }
 
-const onGetMyQuotes = function (event) {
-  api.getMyQuotes()
-    .then(ui.getMyQuotesSuccess)
-    .catch(ui.getMyQuotesSuccessFailure)
+const onShowQuote = function (event) {
+  event.preventDefault()
+  console.log('onShowQuote ran!')
+
+  const data = getFormFields(event.target)
+  const quote = data.quote
+
+  if (quote.id.length !== 0) {
+    api.show(quote)
+      .then(ui.onShowSuccess)
+      .catch(ui.onShowFailure)
+  } else {
+    $('#message').html('<p>Please provide an quote id!</p>')
+    $('#message').css('background-color', 'red')
+    console.log('Please enter an quote id!')
+  }
 }
 
-const onUpdateQuote = event => {
+const onDeleteQuote = function (event) {
   event.preventDefault()
-  const formData = getFormFields(event.target)
-  api.updateEvent(formData)
-    .then(event => {
-      ui.openEventSuccess(event)
-      return event
-    })
-    .then(ui.updateEventsSuccess)
-    .catch(ui.updateEventsSuccessFailure)
+  console.log('onDeleteQuote ran!')
+
+  const data = getFormFields(event.target)
+  const quote = data.quote
+
+  if (quote.id.length !== 0) {
+    api.destroy(quote.id)
+      .then(ui.onDeleteSuccess)
+      .catch(ui.onDeleteFailure)
+  } else {
+    $('#message').html('<p>Please provide an quote id!</p>')
+    $('#message').css('background-color', 'red')
+    console.log('Please provide an quote id!')
+  }
+}
+
+const onUpdateQuote = function (event) {
+  event.preventDefault()
+  console.log('onUpdateQuote ran!')
+
+  const data = getFormFields(event.target)
+  const quote = data.quote
+
+  if (quote.text === '') {
+    $('#message').html('<p>Quote text is required</p>')
+    $('#message').css('background-color', 'red')
+    console.log('Quote text is required!')
+    return false
+  }
+  if (quote.id.length !== 0) {
+    api.update(data)
+      .then(ui.onUpdateSuccess)
+      .catch(ui.onUpdateFailure)
+  } else {
+    $('#message').html('<p>Please provide an quote id!</p>')
+    $('#message').css('background-color', 'red')
+    console.log('Please provide an quote id!')
+  }
 }
 
 const addHandlers = () => {
-  $(document).on('click', '#see-all-my-quotes', onGetMyQuotes)
-  $(document).on('submit', '#create-quote', onCreateQuote)
-  $(document).on('submit', '#update-quote', onUpdateQuote)
-  $(document).on('click', '#delete-event', onDeleteQuote)
+  $('#quote-create').on('submit', onCreateQuote)
+  $('#quote-index').on('submit', onIndexQuotes)
+  $('quote-show').on('submit', onShowQuote)
+  $('#quote-delete').on('submit', onDeleteQuote)
+  $('#quote-update').on('submit', onUpdateQuote)
 }
 
 module.exports = {
-  onCreateQuote,
-  onGetMyQuotes,
-  onDeleteQuote,
-  onUpdateQuote,
   addHandlers
 }

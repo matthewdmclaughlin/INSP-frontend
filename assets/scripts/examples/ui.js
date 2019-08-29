@@ -18,7 +18,7 @@ const onIndexSuccess = function (data) {
   $('#message').text('Your quotes successfully retrieved')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('onIndexSuccess ran. Data is :', data.quotes)
+  console.log('onIndexSuccess ran. Data is :', data.examples)
 }
 
 const onIndexFailure = function (error) {
@@ -60,7 +60,7 @@ const onUpdateSuccess = function () {
   $('#message').text('You have successfully edited your quote')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('Quote successfully updated')
+  console.log('Example successfully updated')
 }
 
 const onUpdateFailure = function (error) {
