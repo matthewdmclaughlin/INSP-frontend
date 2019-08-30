@@ -25,6 +25,10 @@ const onDeleteQuote = function (event) {
   const deletedQuote = $(event.target).data('id')
   api.destroyQuote(deletedQuote)
     .then(ui.onDestroySuccess)
+    .then(() => {
+      return api.showMyQuotes()
+    })
+    .then(ui.showQuotes)
     .catch(ui.onDestroyFailure)
 }
 

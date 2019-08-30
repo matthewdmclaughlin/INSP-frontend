@@ -11,7 +11,7 @@ const successMessage = message => {
   setTimeout(function () {
     $('#message').removeClass('success')
     $('#message').text('')
-  }, 5000)
+  }, 2000)
 }
 
 const failureMessage = message => {
@@ -23,7 +23,7 @@ const failureMessage = message => {
   setTimeout(function () {
     $('#message').removeClass('failure')
     $('#message').text('')
-  }, 5000)
+  }, 2000)
 }
 
 const onCreateSuccess = function (data) {
@@ -34,17 +34,20 @@ const onCreateFailure = function () {
   failureMessage('Error on creating a quote')
 }
 
-const onIndexSuccess = function (data) {
-  $('#message').text('Your quotes successfully retrieved')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-
+const showQuotes = function (data) {
   const showQuotesHtml = showQuotesTemplate({ quotes: data.quotes })
   $('.content').html(showQuotesHtml)
   setTimeout(function () {
     $('#message').removeClass('success')
     $('#message').text('')
-  }, 5000)
+  }, 2000)
+}
+
+const onIndexSuccess = function (data) {
+  $('#message').text('Your quotes successfully retrieved')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  showQuotes(data)
 }
 
 const onIndexFailure = function () {
@@ -67,13 +70,13 @@ const onShowFailure = function () {
 
 const onDestroySuccess = function () {
   $('#message').text('Quote successfully deleted')
-  $('#message').removeClass()
+  $('#message').removeClass('failure')
   $('#message').addClass('success')
 }
 
 const onDestroyFailure = function () {
   $('#message').text('Error deleting your quote')
-  $('#message').removeClass()
+  $('#message').removeClass('success')
   $('#message').addClass('failure')
 }
 
@@ -81,12 +84,20 @@ const onUpdateSuccess = function () {
   $('#message').text('You have successfully edited your quote')
   $('#message').removeClass()
   $('#message').addClass('success')
+  setTimeout(function () {
+    $('#message').removeClass('failure')
+    $('#message').text('')
+  }, 2000)
 }
 
 const onUpdateFailure = function () {
   $('#message').text('Error editing your quote')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  setTimeout(function () {
+    $('#message').removeClass('failure')
+    $('#message').text('')
+  }, 2000)
 }
 
 module.exports = {
@@ -99,5 +110,6 @@ module.exports = {
   onDestroySuccess,
   onDestroyFailure,
   onUpdateSuccess,
-  onUpdateFailure
+  onUpdateFailure,
+  showQuotes
 }
