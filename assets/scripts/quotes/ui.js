@@ -11,7 +11,7 @@ const successMessage = message => {
   setTimeout(function () {
     $('#message').removeClass('success')
     $('#message').text('')
-  }, 2000)
+  }, 4000)
 }
 
 const failureMessage = message => {
@@ -23,7 +23,7 @@ const failureMessage = message => {
   setTimeout(function () {
     $('#message').removeClass('failure')
     $('#message').text('')
-  }, 2000)
+  }, 4000)
 }
 
 const onCreateSuccess = function (data) {

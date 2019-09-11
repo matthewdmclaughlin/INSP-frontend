@@ -1,11 +1,11 @@
 
 {{#each quotes as |quote|}}
   <section data-id="{{quote.id}}">
-    <h6>Quote: {{quote.quote}}</h6>
+    <h2 style="color:white;">Quote: {{quote.quote}}</h6>
 
 
 <form class="edit-quote" id="{{quote._id}}">
-  <input name="quote[quote]" type="text" placeholder="Edit the quote above">
+  <input name="quote[quote]" type="text" placeholder="Enter updated quote">
   <button type="submit" class="btn btn-info">Edit Your Quote</button>
   <button class="btn btn-danger delete-quote" data-id="{{quote._id}}">Delete Your Quote</button>
 </form>
